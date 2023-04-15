@@ -1,4 +1,4 @@
-import { ChildComponent } from "./childComponent";
+import { ChildComponent } from './childComponent';
 
 export { ChildComponent };
 export default null;
