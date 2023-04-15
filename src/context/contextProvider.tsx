@@ -1,15 +1,15 @@
 import React, { ReactNode, useState, useEffect } from "react";
 import { eventEmitter } from "../events";
-import { globalState, StateType } from "./state";
+import { state, StateType } from "./state";
 
 type contextProviderProps = {
   children: (state: StateType) => ReactNode;
 };
 
 const ContextProvider: React.FC<contextProviderProps> = ({ children }) => {
-  const [state, setState] = useState<StateType>(globalState);
+  const [globalState, setGlobalState] = useState<StateType>(state);
 
-  const updateState = () => setState({ ...globalState });
+  const updateState = () => setGlobalState({ ...state });
 
   useEffect(() => {
     eventEmitter.on("updateState", updateState);
@@ -19,7 +19,7 @@ const ContextProvider: React.FC<contextProviderProps> = ({ children }) => {
     };
   }, []);
 
-  return <>{children(state)}</>;
+  return <>{children(globalState)}</>;
 };
 
 const Context = <P extends object>(

@@ -7,7 +7,7 @@ export type StateType = {
   };
 };
 
-export const globalState: StateType = {
+export const state: StateType = {
   theme: {
     currentTheme: "dark",
     themes: {

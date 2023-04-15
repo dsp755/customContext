@@ -1,13 +1,13 @@
-import { globalState } from "./state";
+import { state } from "./state";
 import { eventEmitter } from "../events";
 
 const updateState = () => eventEmitter.emit("updateState");
 
 export const toggleTheme = () => {
-  if (globalState.theme.currentTheme === "light") {
-    globalState.theme.currentTheme = "dark";
+  if (state.theme.currentTheme === "light") {
+    state.theme.currentTheme = "dark";
   } else {
-    globalState.theme.currentTheme = "light";
+    state.theme.currentTheme = "light";
   }
   updateState();
 };
