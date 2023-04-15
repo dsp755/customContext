@@ -1,4 +1,4 @@
-import { ThemeContext } from "./themeContext";
+import { Context } from "./contextProvider";
 
-export { ThemeContext };
+export { Context };
 export default null;

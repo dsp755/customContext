@@ -1,16 +1,17 @@
 import { eventEmitter } from "../../events";
-import { ThemeContext } from "../../context";
+import { Context } from "../../context";
 import { Button } from "../";
+import { toggleTheme } from "../../context/reducers";
 import "./subComponent.css";
 
-const ChildComponent = ThemeContext(({ theme, themeStyles }) => {
+const ChildComponent = Context((state) => {
   return (
-    <div style={themeStyles[theme]} className="sub-component">
+    <div
+      style={state.theme.themes[state.theme.currentTheme]}
+      className="sub-component"
+    >
       <h1>Child Component</h1>
-      <Button
-        text="Toggle Theme"
-        action={() => eventEmitter.emit("toggleTheme")}
-      />
+      <Button text="Toggle Theme" action={toggleTheme} />
     </div>
   );
 });
