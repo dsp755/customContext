@@ -1,8 +1,7 @@
-import { eventEmitter } from "../../events";
 import { Context } from "../../context";
-import { Button } from "../";
+import { Button } from "..";
 import { toggleTheme } from "../../context/reducers";
-import "./subComponent.css";
+import "./childComponent.css";
 
 const ChildComponent = Context((state) => {
   return (

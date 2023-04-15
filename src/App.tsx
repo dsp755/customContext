@@ -1,6 +1,5 @@
-import React, { CSSProperties } from "react";
+import React from "react";
 import { Context } from "./context";
-import { eventEmitter } from "./events";
 import { ChildComponent, Button } from "./components";
 import { toggleTheme } from "./context/reducers";
 
