@@ -7,7 +7,7 @@ const Template: React.FC = () => (
   <div className="app">
     <h1>App Component</h1>
     <Button text="Toggle Theme" action={toggleTheme} />
-    <ChildComponent text="some text" />
+    <ChildComponent text="Some text from child component props" />
     {/* {ChildComponent({ text: "Some text from child component props" })} */}
   </div>
 );

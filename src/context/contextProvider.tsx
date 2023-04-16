@@ -1,6 +1,6 @@
 import React, { ReactNode, useState, useEffect } from 'react';
 import { eventEmitter } from '../events';
-import { state } from './state';
+import { state } from '.';
 import { StateType } from './types';
 
 type Props = {

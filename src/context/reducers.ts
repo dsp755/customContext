@@ -1,4 +1,4 @@
-import { state } from './state';
+import { state } from '.';
 import { eventEmitter } from '../events';
 
 const updateState = () => eventEmitter.emit('updateState');
