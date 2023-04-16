@@ -1,7 +1,7 @@
 import React from 'react';
-import { TemplateWrapper, state } from '../../context';
+import { TemplateWrapper, state } from '../../state';
 import { Button } from '..';
-import { toggleTheme, toggleSharedText } from '../../context/reducers';
+import { toggleTheme, toggleSharedText } from '../../state/reducers';
 import './childComponent.css';
 
 type Props = {

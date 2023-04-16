@@ -1,7 +1,7 @@
 import React from 'react';
-import { TemplateWrapper, state } from './context';
+import { TemplateWrapper, state } from './state';
 import { ChildComponent, Button } from './components';
-import { toggleTheme, toggleSharedText } from './context/reducers';
+import { toggleTheme, toggleSharedText } from './state/reducers';
 import './app.css';
 
 const Template: React.FC = () => (

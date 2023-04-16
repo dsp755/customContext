@@ -1,5 +1,5 @@
 import React from 'react';
-import { TemplateWrapper, state } from '../../context';
+import { TemplateWrapper, state } from '../../state';
 
 type Props = {
   text: string;
