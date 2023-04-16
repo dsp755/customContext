@@ -7,4 +7,5 @@ export type Theme = {
 
 export type StateType = {
   theme: Theme[];
+  sharedText: Array<string>;
 };

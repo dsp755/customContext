@@ -16,7 +16,7 @@ const ContextProvider: React.FC<Props> = ({ children }) => {
     eventEmitter.on('updateState', updateState);
 
     return () => {
-      eventEmitter.off('theme', updateState);
+      eventEmitter.off('updateState', updateState);
     };
   }, []);
 

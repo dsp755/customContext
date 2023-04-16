@@ -1,7 +1,7 @@
 import React from 'react';
-import { Context } from '../../context';
+import { Context, state } from '../../context';
 import { Button } from '..';
-import { toggleTheme } from '../../context/reducers';
+import { toggleTheme, toggleSharedText } from '../../context/reducers';
 import './childComponent.css';
 
 type Props = {
@@ -12,7 +12,11 @@ const Template: React.FC<Props> = ({ text }) => (
   <div className="sub-component">
     <h1>Child Component</h1>
     <h2>{text}</h2>
-    <Button text="Toggle Theme" action={toggleTheme} />
+    <h2>{state.sharedText[0]}</h2>
+    <div className="button-wrapper">
+      <Button text="Toggle Theme" action={toggleTheme} />
+      <Button text="Toggle Shared Text" action={toggleSharedText} />
+    </div>
   </div>
 );
 

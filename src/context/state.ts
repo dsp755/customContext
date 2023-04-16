@@ -5,4 +5,5 @@ export const state: StateType = {
     { background: '#242424', color: '#dbdbdb' },
     { background: '#dbdbdb', color: '#242424' },
   ],
+  sharedText: ['First shared text', 'Second shared text'],
 };
