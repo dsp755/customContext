@@ -1,16 +1,15 @@
 import React, { ReactNode, useState, useEffect } from 'react';
 import { eventEmitter } from '../events';
 import { state } from '.';
-import { StateType } from './types';
 
 type Props = {
-  children: (state: StateType) => ReactNode;
+  children: (value: number) => ReactNode;
 };
 
-const ContextProvider: React.FC<Props> = ({ children }) => {
-  const [globalState, setGlobalState] = useState<StateType>(state);
+const StateUpdater: React.FC<Props> = ({ children }) => {
+  const [renderedTimes, setRenderedTimes] = useState<number>(1);
 
-  const updateState = () => setGlobalState({ ...state });
+  const updateState = () => setRenderedTimes((prev) => prev + 1);
 
   useEffect(() => {
     eventEmitter.on('updateState', updateState);
@@ -20,18 +19,17 @@ const ContextProvider: React.FC<Props> = ({ children }) => {
     };
   }, []);
 
-  return <>{children(globalState)}</>;
+  // Using renderedTimes variable just to not to leave it unused
+  return <>{children(renderedTimes)}</>;
 };
 
 const Context =
   <P extends object>(Component: React.FC<P>): React.FC<P> =>
   (props: P) =>
     (
-      <ContextProvider>
-        {(state: StateType) => (
-          <div style={state.theme[0]}>{Component({ ...props })}</div>
-        )}
-      </ContextProvider>
+      <StateUpdater>
+        {() => <div style={state.theme[0]}>{Component({ ...props })}</div>}
+      </StateUpdater>
     );
 
 export { Context };
