@@ -1,6 +1,7 @@
 import React, { ReactNode, useState, useEffect } from 'react';
 import { eventEmitter } from '../events';
-import { state, StateType } from './state';
+import { state } from './state';
+import { StateType } from './types';
 
 type Props = {
   children: (state: StateType) => ReactNode;
@@ -27,7 +28,9 @@ const Context =
   (props: P) =>
     (
       <ContextProvider>
-        {(state: StateType) => <Component {...props} {...state} />}
+        {(state: StateType) => (
+          <div style={state.theme[0]}>{Component({ ...props, ...state })}</div>
+        )}
       </ContextProvider>
     );
 
