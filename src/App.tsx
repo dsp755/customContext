@@ -1,5 +1,5 @@
 import React from 'react';
-import { Context, state } from './context';
+import { TemplateWrapper, state } from './context';
 import { ChildComponent, Button } from './components';
 import { toggleTheme, toggleSharedText } from './context/reducers';
 import './app.css';
@@ -17,6 +17,6 @@ const Template: React.FC = () => (
   </div>
 );
 
-const App = Context(Template);
+const App = TemplateWrapper(Template);
 
 export default App;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Context, state } from '../../context';
+import { TemplateWrapper, state } from '../../context';
 import { Button } from '..';
 import { toggleTheme, toggleSharedText } from '../../context/reducers';
 import './childComponent.css';
@@ -20,7 +20,7 @@ const Template: React.FC<Props> = ({ text }) => (
   </div>
 );
 
-const ChildComponent = Context(Template);
+const ChildComponent = TemplateWrapper(Template);
 
 export { ChildComponent };
 export default null;

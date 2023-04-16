@@ -1,5 +1,5 @@
-import { Context } from './contextProvider';
+import { TemplateWrapper } from './contextProvider';
 import { state } from './state';
 
-export { Context, state };
+export { TemplateWrapper, state };
 export default null;

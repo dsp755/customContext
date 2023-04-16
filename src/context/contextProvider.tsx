@@ -9,9 +9,9 @@ type Props = {
 const StateUpdater: React.FC<Props> = ({ children }) => {
   const [renderedTimes, setRenderedTimes] = useState<number>(1);
 
-  const updateState = () => setRenderedTimes((prev) => prev + 1);
-
   useEffect(() => {
+    const updateState = () => setRenderedTimes((prev) => prev + 1);
+
     eventEmitter.on('updateState', updateState);
 
     return () => {
@@ -23,7 +23,7 @@ const StateUpdater: React.FC<Props> = ({ children }) => {
   return <>{children(renderedTimes)}</>;
 };
 
-const Context =
+const TemplateWrapper =
   <P extends object>(Component: React.FC<P>): React.FC<P> =>
   (props: P) =>
     (
@@ -32,5 +32,5 @@ const Context =
       </StateUpdater>
     );
 
-export { Context };
+export { TemplateWrapper };
 export default null;
