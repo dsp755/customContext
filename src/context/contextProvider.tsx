@@ -24,12 +24,12 @@ const ContextProvider: React.FC<Props> = ({ children }) => {
 };
 
 const Context =
-  <P extends object>(Component: React.FC<P & StateType>): React.FC<P> =>
+  <P extends object>(Component: React.FC<P>): React.FC<P> =>
   (props: P) =>
     (
       <ContextProvider>
         {(state: StateType) => (
-          <div style={state.theme[0]}>{Component({ ...props, ...state })}</div>
+          <div style={state.theme[0]}>{Component({ ...props })}</div>
         )}
       </ContextProvider>
     );
