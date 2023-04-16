@@ -6,7 +6,7 @@ type Props = {
   children: (value: number) => ReactNode;
 };
 
-const StateUpdater: React.FC<Props> = ({ children }) => {
+const ComponentWrapper: React.FC<Props> = ({ children }) => {
   const [renderedTimes, setRenderedTimes] = useState<number>(1);
 
   useEffect(() => {
@@ -23,14 +23,14 @@ const StateUpdater: React.FC<Props> = ({ children }) => {
   return <>{children(renderedTimes)}</>;
 };
 
-const TemplateWrapper =
+const StateUpdater =
   <P extends object>(Component: React.FC<P>): React.FC<P> =>
   (props: P) =>
     (
-      <StateUpdater>
+      <ComponentWrapper>
         {() => <div style={state.theme[0]}>{Component({ ...props })}</div>}
-      </StateUpdater>
+      </ComponentWrapper>
     );
 
-export { TemplateWrapper };
+export { StateUpdater };
 export default null;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { TemplateWrapper, state } from './state';
+import { StateUpdater, state } from './state';
 import { ChildComponent, Button } from './components';
 import { toggleTheme, toggleSharedText } from './state/reducers';
 import './app.css';
@@ -17,6 +17,6 @@ const Template: React.FC = () => (
   </div>
 );
 
-const App = TemplateWrapper(Template);
+const App = StateUpdater(Template);
 
 export default App;

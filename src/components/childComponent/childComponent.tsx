@@ -1,5 +1,5 @@
 import React from 'react';
-import { TemplateWrapper, state } from '../../state';
+import { StateUpdater, state } from '../../state';
 import { Button } from '..';
 import { toggleTheme, toggleSharedText } from '../../state/reducers';
 import './childComponent.css';
@@ -20,7 +20,7 @@ const Template: React.FC<Props> = ({ text }) => (
   </div>
 );
 
-const ChildComponent = TemplateWrapper(Template);
+const ChildComponent = StateUpdater(Template);
 
 export { ChildComponent };
 export default null;
