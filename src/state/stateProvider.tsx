@@ -1,16 +1,16 @@
 import React, { ReactNode, useState, useEffect } from 'react';
 import { eventEmitter } from '../events';
-import { state } from '.';
+import { state } from './state';
 
 type Props = {
-  children: (value: number) => ReactNode;
+  children: (props: any) => ReactNode;
 };
 
 const ComponentWrapper: React.FC<Props> = ({ children }) => {
-  const [renderedTimes, setRenderedTimes] = useState<number>(1);
+  const [globalState, setGlobalState] = useState<any>(state);
 
   useEffect(() => {
-    const updateState = () => setRenderedTimes((prev) => prev + 1);
+    const updateState = () => setGlobalState({ ...state });
 
     eventEmitter.on('updateState', updateState);
 
@@ -20,17 +20,19 @@ const ComponentWrapper: React.FC<Props> = ({ children }) => {
   }, []);
 
   // Using renderedTimes variable just to not to leave it unused
-  return <>{children(renderedTimes)}</>;
+  return <>{children(globalState)}</>;
 };
 
-const StateUpdater =
+const StateProvider =
   <P extends object>(Component: React.FC<P>): React.FC<P> =>
   (props: P) =>
     (
       <ComponentWrapper>
-        {() => <div style={state.theme[0]}>{Component({ ...props })}</div>}
+        {(state) => (
+          <div style={state.theme[0]}>{Component({ ...props, state })}</div>
+        )}
       </ComponentWrapper>
     );
 
-export { StateUpdater };
+export { StateProvider };
 export default null;

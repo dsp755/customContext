@@ -1,14 +1,15 @@
 import React from 'react';
-import { StateUpdater, state } from '../../state';
+import { StateProvider } from '../../state';
 import { Button } from '..';
 import { toggleTheme, toggleSharedText } from '../../state/reducers';
 import './childComponent.css';
 
 type Props = {
+  state?: any;
   text: string;
 };
 
-const Template: React.FC<Props> = ({ text }) => (
+const Template: React.FC<Props> = ({ state, text }) => (
   <div className="sub-component">
     <h1>Child Component</h1>
     <h2>{text}</h2>
@@ -20,7 +21,7 @@ const Template: React.FC<Props> = ({ text }) => (
   </div>
 );
 
-const ChildComponent = StateUpdater(Template);
+const ChildComponent = StateProvider(Template);
 
 export { ChildComponent };
 export default null;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StateUpdater, state } from '../../state';
+import { StateProvider, state } from '../../state';
 
 type Props = {
   text: string;
@@ -12,7 +12,7 @@ const Template: React.FC<Props> = ({ text, action }) => (
   </button>
 );
 
-const Button = StateUpdater(Template);
+const Button = StateProvider(Template);
 
 export { Button };
 export default null;

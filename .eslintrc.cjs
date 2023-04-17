@@ -33,6 +33,8 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'react/jsx-props-no-spreading': 'off',
     'comma-dangle': 'off',
+    'react/destructuring-assignment': 'off',
+    'react/require-default-props': 'off',
     'import/extensions': [
       'error',
       'ignorePackages',

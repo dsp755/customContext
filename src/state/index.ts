@@ -1,5 +1,5 @@
-import { StateUpdater } from './stateUpdater';
+import { StateProvider } from './stateProvider';
 import { state } from './state';
 
-export { StateUpdater, state };
+export { StateProvider, state };
 export default null;
