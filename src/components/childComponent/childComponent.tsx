@@ -2,6 +2,7 @@ import React from 'react';
 import { StateProvider } from '../../state';
 import { Button } from '..';
 import { toggleTheme, toggleSharedText } from '../../state/reducers';
+import { useInterval } from '../../utils/hooks';
 import './childComponent.css';
 
 type Props = {

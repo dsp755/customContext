@@ -26,6 +26,8 @@ module.exports = {
   plugins: ['react', '@typescript-eslint'],
   rules: {
     semi: ['error', 'always'],
+    'padded-blocks': 'off',
+    'consistent-return': 'off',
     'css-modules/no-unused-class': 'off',
     indent: 'off',
     'no-shadow': 'off',
